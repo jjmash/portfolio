@@ -1,0 +1,137 @@
+---
+// JavaScript-like frontmatter with data
+const articles = [
+  {
+    title: "India's massive failure to control pesticide overuse in cardamom and its spice trade",
+    source: "Himal Southasian",
+    url: "https://www.himalmag.com/politics/cardamom-india-spices-ban-pesticide-contamination-idukki-kerala-food-safety"
+  },
+  {
+    title: "Purse-seiners, trawlers, and the epic fight over fishing in Tamil Nadu",
+    source: "Himal Southasian",
+    url: "https://www.himalmag.com/politics/purse-seine-tamil-nadu-trawlers-fishing-ban-protest-nagapattinam"
+  },
+  {
+    title: "How the fight against a pipeline in Kerala travelled downstream",
+    source: "Scroll.in",
+    url: "https://scroll.in/article/1024070/how-the-fight-against-a-pipeline-in-kerala-travelled-downstream"
+  },
+  {
+    title: "Tribal panchayats in protected areas being illegally converted to municipalities",
+    source: "Frontline",
+    url: "https://frontline.thehindu.com/the-nation/investigation-pushed-even-from-the-margins-tribal-panchayats-in-protected-areas-illegally-being-converted-to-municipalities/article65893689.ece"
+  },
+  {
+    title: "Displaced by settlers: Tribal communities in Kerala’s Attappady block are being alienated from their land",
+    source: "Down To Earth",
+    url: "https://www.downtoearth.org.in/governance/displaced-by-settlers-tribal-communities-in-kerala-s-attappady-block-are-being-alienated-from-their-land-88776"
+  },
+  {
+    title: "Nepal's unescapable trap of migration, farming and climate change",
+    source: "Himal Southasian",
+    url: "https://www.himalmag.com/politics/nepal-himalaya-migration-rural-farming-agriculture-climate-change"
+  }
+];
+
+const videos = [
+  {
+    title: "After the Green Age: Repowering Challenges in Tamil Nadu | The Wire",
+    url: "https://www.youtube.com/watch?v=jRXy0S9UCpY&ab_channel=TheWire",
+    thumbnail: "https://img.youtube.com/vi/jRXy0S9UCpY/0.jpg"
+  },
+  {
+    title: "Tamil Nadu's Decade of Stagnation: Wind Energy Awaits Revival in this Once Pioneer State | The Wire",
+    url: "https://www.youtube.com/watch?v=TwfTAW8q2Gg&ab_channel=TheWire",
+    thumbnail: "https://img.youtube.com/vi/TwfTAW8q2Gg/0.jpg"
+  },
+  {
+    title: "How Irulas Are Deprived of Land Rights in Tamil Nadu | The Quint",
+    url: "https://www.youtube.com/watch?v=93kEz-Wimic&ab_channel=TheQuint",
+    thumbnail: "https://img.youtube.com/vi/93kEz-Wimic/0.jpg"
+  },
+  {
+    title: "Cardamom: Stories from Pesticide Hill | Himal Southasian",
+    url: "https://www.youtube.com/watch?v=ixnzPfAuh94&ab_channel=Osupaan",
+    thumbnail: "https://img.youtube.com/vi/ixnzPfAuh94/0.jpg"
+  },
+  {
+    title: "Purse-seiners, trawlers, and the epic fight over fishing in Tamil Nadu | Himal Southasian",
+    url: "https://www.youtube.com/watch?v=M3i5a5DV6lo&ab_channel=HimalSouthasian",
+    thumbnail: "https://img.youtube.com/vi/M3i5a5DV6lo/0.jpg"
+  },
+  {
+    title: "Nepal's unescapable trap of migration, farming and climate change | Himal Southasian",
+    url: "https://www.youtube.com/watch?v=yyaPJrShNKY&ab_channel=HimalSouthasian",
+    thumbnail: "https://img.youtube.com/vi/yyaPJrShNKY/0.jpg"
+  }
+];
+
+const photos = [
+  "/photos/IMG_1.jpg",
+  "/photos/IMG_2.jpg",
+  "/photos/IMG_3.jpg",
+  "/photos/IMG_4.jpg",
+  "/photos/IMG_5.jpg",
+  "/photos/IMG_6.jpg"
+];
+---
+
+<html>
+  <head>
+    <title>Jeff Joseph – Portfolio</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="header">
+ <img 
+        src="/profile.jpg" 
+        alt="Jeff Joseph" 
+        style="width: 100%; max-width: 300px; height: auto; border: 1px solid #ccc; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" 
+      /> 
+      <h1>Jeff Joseph</h1>
+      <p>Award Winning Journalist and visual storyteller. Exploring stories at the intersection of environment, community, and policy.</p>
+    </header>
+    <nav>
+      <a href="#articles">Articles</a>
+      <a href="#videos">Videos</a>
+      <a href="#photos">Photos</a>
+    </nav>
+
+    <section id="articles">
+      <h2>Articles</h2>
+      <ul class="article-list">
+        {articles.map(article => (
+          <li>
+            <a href={article.url} target="_blank">
+              <strong>{article.title}</strong><br />
+              <em>{article.source}</em>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="videos">
+      <h2>Videos</h2>
+      <div class="videos">
+        {videos.map(video => (
+          <div class="video">
+            <a href={video.url} target="_blank">
+              <img src={video.thumbnail} alt={video.title} />
+              <p>{video.title}</p>
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="photos">
+      <h2>Photos</h2>
+      <div class="photos">
+        {photos.map(photo => (
+          <img src={photo} alt="Portfolio Photo" />
+        ))}
+      </div>
+    </section>
+  </body>
+</html>

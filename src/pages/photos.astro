@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import fs from 'node:fs';
+const photos = fs.readdirSync('./public/photos');
+---
+
+<header>
+  <h1>Photos</h1>
+</header>
+
+<nav>
+  <a href="/">Home</a>
+  <a href="/articles">Articles</a>
+  <a href="/videos">Videos</a>
+</nav>
+
+<main>
+  <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+    {
+      photos.map(photo => `<img src="/photos/${photo}" style="width:100%; object-fit:cover;" alt="" />`).join('')
+    }
+  </section>
+</main>
